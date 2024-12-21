@@ -1,0 +1,36 @@
+# Sample data: list of consumers with their spending amounts
+consumers = [
+    {"name": "Alice", "spending": 1500},
+    {"name": "Bob", "spending": 700},
+    {"name": "Charlie", "spending": 3000},
+    {"name": "David", "spending": 400},
+    {"name": "Eva", "spending": 1200}
+]
+
+# Criteria for important customers: spending more than $1000
+IMPORTANT_THRESHOLD = 1000
+
+# Function to group consumers
+def group_consumers(consumers, threshold):
+    important_customers = []
+    non_important_customers = []
+    
+    for consumer in consumers:
+        if consumer["spending"] > threshold:
+            important_customers.append(consumer)
+        else:
+            non_important_customers.append(consumer)
+    
+    return important_customers, non_important_customers
+
+# Grouping consumers based on the threshold
+important_customers, non_important_customers = group_consumers(consumers, IMPORTANT_THRESHOLD)
+
+# Printing the results
+print("Important Customers:")
+for customer in important_customers:
+    print(f"Name: {customer['name']}, Spending: ${customer['spending']}")
+
+print("\nNon-Important Customers:")
+for customer in non_important_customers:
+    print(f"Name: {customer['name']}, Spending: ${customer['spending']}")
